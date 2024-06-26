@@ -1,2 +1,2 @@
-my studie in book kotlin design patern and pest practice
+study in the book Kotlin Design pattern and best practice
 
