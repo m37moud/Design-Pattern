@@ -6,27 +6,27 @@ fun main() {
     val validate = ValidatingCapName(starTrek)
     val loggingStarTrek = LoggingStarTrek(validate)
 
-    println(loggingStarTrek.getCaptinName("first star ship"))
+    println(loggingStarTrek.getCaptainName("first star ship"))
 
-    loggingStarTrek.setCaptin("second star ship" , "Cap : Fathy FathyFathyFathyFathy")
+    loggingStarTrek.setCaptain("second star ship" , "Cap : Fathy FathyFathyFathyFathy")
 }
 
 
 
 interface StarTrekRepository {
-    fun getCaptinName(starShip: String): String
-    fun setCaptin(starShip: String, captinName: String)
+    fun getCaptainName(starShip: String): String
+    fun setCaptain(starShip: String, captainName: String)
 
 }
 
 class DefaultStartTrekRepository : StarTrekRepository {
-    val map = mutableMapOf("first star ship" to "cap :Mahmoud ")
-    override fun getCaptinName(starShip: String): String {
-        return map[starShip] ?: "Unknewon Error"
+    private val map = mutableMapOf("first star ship" to "cap :Mahmoud ")
+    override fun getCaptainName(starShip: String): String {
+        return map[starShip] ?: "Unknown Error"
     }
 
-    override fun setCaptin(starShip: String, captinName: String) {
-        map[starShip] = captinName
+    override fun setCaptain(starShip: String, captainName: String) {
+        map[starShip] = captainName
     }
 
 }
@@ -34,20 +34,20 @@ class DefaultStartTrekRepository : StarTrekRepository {
 class LoggingStarTrek(val repository: StarTrekRepository) :
     StarTrekRepository by repository {
 
-    override fun getCaptinName(starShip: String): String {
+    override fun getCaptainName(starShip: String): String {
          println("try to get Captain for ship $starShip")
-        return repository.getCaptinName(starShip)
+        return repository.getCaptainName(starShip)
     }
 }
 
 class ValidatingCapName(private val repository: StarTrekRepository) : StarTrekRepository by repository {
-    private val captinMaxLengthChar = 15
-    override fun setCaptin(starShip: String, captinName: String) {
-        require(captinName.length <= captinMaxLengthChar) {
-            println("captain $captinName char length is ")
+    private val captainMaxLengthChar = 15
+    override fun setCaptain(starShip: String, captainName: String) {
+        require(captainName.length <= captainMaxLengthChar) {
+            println("captain $captainName char length is ")
         }
 
-        repository.setCaptin(starShip, captinName)
+        repository.setCaptain(starShip, captainName)
     }
 }
 

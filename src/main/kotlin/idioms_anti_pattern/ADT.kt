@@ -14,7 +14,7 @@ fun main() {
             Node(data = 3)
         )
     )
-    println(tree)
+    println(tree.sum())
 
 }
 
