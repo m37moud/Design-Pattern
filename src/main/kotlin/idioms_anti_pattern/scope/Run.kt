@@ -1,7 +1,8 @@
 package org.example.idioms_anti_pattern.scope
 
 /**
- * run look like let function but it use this of the context of the function instead of using it
+ * run look like let function but it use this of the context
+ * of the function instead of using it
  * note we can use omitted this
  */
 fun main() {
