@@ -5,6 +5,7 @@ package org.example.idioms_anti_pattern.scope
  * of the function instead of using it
  * note we can use omitted this
  */
+
 fun main() {
     val myName = "mahmoud"
     myName.run {
